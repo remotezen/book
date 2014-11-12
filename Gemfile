@@ -22,6 +22,10 @@ gem 'sqlite3'
 gem 'rspec', :group => 'test'
 gem 'rack-test', :require => 'rack/test', :group => 'test'
 
+group :test ,:development do
+  gem 'guard'
+  gem 'spork'
+end
 # Padrino Stable Gem
 gem 'padrino', '0.12.4'
 
@@ -32,3 +36,9 @@ gem 'padrino', '0.12.4'
 # %w(core support gen helpers cache mailer admin).each do |g|
 #   gem 'padrino-' + g, '0.12.4'
 # end
+gem 'padrino-sprockets', :require => ['padrino/sprockets'],
+  :git => 'git://github.com/nightsailer/padrino-sprockets.git'
+gem 'uglifier', '2.1.1'
+gem 'yui-compressor', '0.9.6'
+gem 'execjs'
+gem 'therubyracer'
