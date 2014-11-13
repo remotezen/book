@@ -29,6 +29,9 @@ group :test ,:development do
 end
 # Padrino Stable Gem
 gem 'padrino', '0.12.4'
+group :test do
+  gem 'factory_girl'
+end
 
 # Or Padrino Edge
 # gem 'padrino', :github => 'padrino/padrino-framework'
@@ -44,3 +47,5 @@ gem 'yui-compressor', '0.9.6'
 gem 'execjs'
 gem 'therubyracer'
 gem 'puma'
+gem 'pry'
+gem 'pry-padrino'

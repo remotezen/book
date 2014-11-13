@@ -1,6 +1,6 @@
 class CreateJobOffers < ActiveRecord::Migration
   def self.up
-    create_table :job_offers do |t|
+    create_table :joboffers do |t|
       t.string :title
       t.string :location
       t.text :description
@@ -12,6 +12,6 @@ class CreateJobOffers < ActiveRecord::Migration
   end
 
   def self.down
-    drop_table :job_offers
+    drop_table :joboffers
   end
 end
