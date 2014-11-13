@@ -25,6 +25,7 @@ gem 'rack-test', :require => 'rack/test', :group => 'test'
 group :test ,:development do
   gem 'guard'
   gem 'spork'
+  gem 'guard-rspec'
 end
 # Padrino Stable Gem
 gem 'padrino', '0.12.4'
@@ -42,3 +43,4 @@ gem 'uglifier', '2.1.1'
 gem 'yui-compressor', '0.9.6'
 gem 'execjs'
 gem 'therubyracer'
+gem 'puma'
