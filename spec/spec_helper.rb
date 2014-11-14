@@ -63,6 +63,8 @@ RSpec.configure do |conf|
       c.syntax = [:should, :expect]
     end
   end
+  conf.include Rack::Test::Methods
+  conf.include FactoryGirl::Syntax::Methods
 end
 
 # You can use this method to custom specify a Rack app

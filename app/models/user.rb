@@ -1,5 +1,3 @@
 class User < ActiveRecord::Base
-  has_many :job_offers
-  
-
+  has_many :jobs
 end
