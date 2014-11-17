@@ -13,14 +13,6 @@
 #
 # You can set the default delivery settings from your app through:
 #
-#   set :delivery_method, :smtp => {
-#     :address         => 'smtp.yourserver.com',
-#     :port            => '25',
-#     :user_name       => 'user',
-#     :password        => 'pass',
-#     :authentication  => :plain, # :plain, :login, :cram_md5, no auth by default
-#     :domain          => "localhost.localdomain" # the HELO domain provided by the client to the server
-#   }
 #
 # or sendmail (default):
 #
@@ -40,9 +32,13 @@
 #
 
 JobVacancy::App.mailer :registration do
-
-  email :registration_email do
-    # Your mailer goes here ...
+    email :registration_email do |name, email|
+    from :"accounts@jobvacancy.com"
+    to email
+    subject "Welcome to Job Vacancies"
+    locals name:name
+    render 'registration/registration_email'
+    content_type :plain
   end
 
 end

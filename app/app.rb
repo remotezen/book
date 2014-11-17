@@ -1,19 +1,22 @@
 module JobVacancy
   class App < Padrino::Application
     use ConnectionPoolManagement
-    register Padrino::Mailer
     register Padrino::Helpers
     register Padrino::Sprockets
     sprockets :minify => (Padrino.env == :production)
 
     enable :sessions
-    set :delivery_method, :smtp =>{  
-      address: 'smtp.gmail.com',
-      port: 587,
-      user_name: 'frederickjhudson@gmail.com',
-      password: 'vgn-fs550',
-      authentication: :plain
-    }
+
+    register Padrino::Mailer
+    
+    set :delivery_method, :smtp => {
+     :address         => 'smtp.gmail.com',
+     :port            => '587',
+     :user_name       => 'frederickjhudson@gmail.com',
+     :password        => 'vgn-fs550',
+     :authentication  => :plain,
+     :domain          => "Remotezen" 
+   }
 
 
     ##
