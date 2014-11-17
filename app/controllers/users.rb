@@ -21,7 +21,7 @@ JobVacancy::App.controllers :users do
   
   get :new, map:"/login" do
     @user = User.new
-    render :erb, 'new'
+    render 'new' 
   end
 
 end

@@ -7,6 +7,13 @@ module JobVacancy
     sprockets :minify => (Padrino.env == :production)
 
     enable :sessions
+    set :delivery_method, :smtp =>{  
+      address: 'smtp.gmail.com',
+      port: 587,
+      user_name: 'frederickjhudson@gmail.com',
+      password: 'vgn-fs550',
+      authentication: :plain
+    }
 
 
     ##

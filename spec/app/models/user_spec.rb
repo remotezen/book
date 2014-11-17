@@ -42,7 +42,6 @@ describe "User Model" do
   describe "email address" do
     let(:user){build(:user)}
     let(:user_second){build(:user)}
-    
     it "should not be blank" do
       user.email = " "
       user.save.should == false 
@@ -82,11 +81,11 @@ describe "User Model" do
   
   end
   describe "password validations" do
+    let(:user){ build(:user) }
     it "not blank" do
-      let(:user){ build(:user) }
-
+      user.password = " "
+      expect(user.save).to eq false 
     end
   end
-
 end
 

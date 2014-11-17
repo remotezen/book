@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
      format:{ with: VALID_EMAIL_REGEX },
     :uniqueness => true
 
-    #validates :password, presence: true, confirmation:true;
+    validates :password, presence: true, confirmation:true;
   
   has_many :jobs
 

@@ -1,0 +1,53 @@
+<% form_for(@user, '/users/create', :html => {id: 'register',  class: "form-inline"}) do |f| %>
+  <%=  partial 'shared/error_message.html',locals:{  obj: @user } %>
+    <fieldset>
+      <div class="control-group">
+        <%=f.label :name, class:"control-label"%>
+        <div class="controls">
+          <%=f.text_field :name, class:"text-field", placeholder:"Enter Name"%>
+        </div>
+      </div>
+
+    <div class="control-group">
+      <%=f.label :email, class:"form-label" %>
+      <div class="controls">
+        <%=f.text_field :email, class:"text-field", placeholder: "Enter Email"%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%=f.label :password%>
+      <div class="controls">
+        <%=f.password_field :password,  :html => {  id: "password1", class:"pasword-field"}, placeholder:"password"%>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%=f.label :password_confirmation,  class:"form-label"%>
+      <div class="controls">
+        <%=f.password_field :password_confirmation, :html =>{  id:"password2", class:"password-field"} , placeholder:"password confirmation" %>
+      </div>
+    </div>
+    <div class="form-actions">
+      <%=f.submit "Sign Up", class: "btn btn-primary"%>
+    </div>
+  </fieldset>
+<%end%>
+
+<script type="text/javascript">
+  $(function () {
+              $('#register').submit(function () {
+                  var form = $(this);
+                  if ($('#password').val() != $('#password2').val()) {
+                      form.data('validator').invalidate({
+                          password2: "Passwords don't match"
+                      });
+                      return false;
+                  }
+              });
+          });
+
+
+</script>
+
+
