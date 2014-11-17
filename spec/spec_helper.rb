@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'spork'
+require 'database_cleaner'
 #uncomment the following line to use spork with the debugger
 #require 'spork/ext/ruby-debug'
 
@@ -65,6 +66,16 @@ RSpec.configure do |conf|
   end
   conf.include Rack::Test::Methods
   conf.include FactoryGirl::Syntax::Methods
+conf.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  conf.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
 end
 
 # You can use this method to custom specify a Rack app

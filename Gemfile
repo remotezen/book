@@ -31,6 +31,7 @@ end
 gem 'padrino', '0.12.4'
 group :test do
   gem 'factory_girl'
+  gem 'database_cleaner'
 end
 
 # Or Padrino Edge
